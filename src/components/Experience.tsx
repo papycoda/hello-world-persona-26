@@ -43,41 +43,41 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-20">
             Professional Experience
           </h2>
           
-          <div className="space-y-8">
+          <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div>
-                      <CardTitle className="text-xl text-gray-900">{exp.title}</CardTitle>
-                      <p className="text-lg text-blue-600 font-semibold">{exp.company}</p>
+              <Card key={index} className="hover:shadow-xl transition-shadow duration-300 p-8">
+                <CardHeader className="pb-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div className="flex-1">
+                      <CardTitle className="text-2xl text-gray-900 mb-2">{exp.title}</CardTitle>
+                      <p className="text-xl text-blue-600 font-semibold">{exp.company}</p>
                     </div>
-                    <div className="flex flex-col md:items-end gap-2">
-                      <div className="flex items-center text-gray-500">
-                        <Calendar className="w-4 h-4 mr-2" />
+                    <div className="flex flex-col md:items-end gap-3 min-w-fit">
+                      <div className="flex items-center text-gray-500 text-lg">
+                        <Calendar className="w-5 h-5 mr-3" />
                         {exp.period}
                       </div>
-                      <div className="flex items-center text-gray-500">
-                        <MapPin className="w-4 h-4 mr-2" />
+                      <div className="flex items-center text-gray-500 text-lg">
+                        <MapPin className="w-5 h-5 mr-3" />
                         {exp.location}
                       </div>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">{exp.description}</p>
-                  <ul className="space-y-2">
+                <CardContent className="pt-0">
+                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">{exp.description}</p>
+                  <ul className="space-y-3">
                     {exp.achievements.map((achievement, achIndex) => (
                       <li key={achIndex} className="flex items-start">
-                        <span className="text-blue-600 mr-2">•</span>
-                        <span className="text-gray-600">{achievement}</span>
+                        <span className="text-blue-600 mr-3 text-lg font-bold">•</span>
+                        <span className="text-gray-600 text-lg">{achievement}</span>
                       </li>
                     ))}
                   </ul>
