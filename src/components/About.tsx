@@ -10,7 +10,7 @@ const About = () => {
             About Me
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-24 items-start">
             <div className="space-y-8">
               <p className="text-xl text-gray-300 leading-relaxed">
                 I'm a passionate Python Backend Engineer with over 5 years of experience 
@@ -41,8 +41,8 @@ const About = () => {
               </div>
             </div>
             
-            <div className="flex justify-center">
-              <div className="w-96 h-96 bg-gradient-to-br from-green-900 to-green-800 rounded-lg flex items-center justify-center shadow-2xl">
+            <div className="flex justify-end md:justify-center lg:justify-end">
+              <div className="w-80 h-80 bg-gradient-to-br from-green-900 to-green-800 rounded-lg flex items-center justify-center shadow-2xl">
                 <div className="text-8xl">🐍</div>
               </div>
             </div>
