@@ -1,15 +1,42 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted");
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrbkpeey", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setSubmitMessage("Thank you! Your message has been sent successfully.");
+        form.reset();
+      } else {
+        setSubmitMessage("Oops! There was a problem sending your message.");
+      }
+    } catch (error) {
+      setSubmitMessage("Oops! There was a problem sending your message.");
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -38,13 +65,13 @@ const Contact = () => {
                   <div className="bg-blue-100 p-4 rounded-full">
                     <Mail className="w-8 h-8 text-blue-600" />
                   </div>
-                  <span className="text-xl text-gray-600">contact@yemibanwo.dev</span>
+                  <span className="text-xl text-gray-600">Contact@yemibanwo.dev</span>
                 </div>
                 <div className="flex items-center space-x-6">
                   <div className="bg-blue-100 p-4 rounded-full">
                     <Phone className="w-8 h-8 text-blue-600" />
                   </div>
-                  <span className="text-xl text-gray-600">+234 XXX XXX XXXX</span>
+                  <span className="text-xl text-gray-600">+234 904 025 2734</span>
                 </div>
                 <div className="flex items-center space-x-6">
                   <div className="bg-blue-100 p-4 rounded-full">
@@ -63,29 +90,68 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <Label htmlFor="name" className="text-lg">Name</Label>
-                    <Input id="name" placeholder="Your name" required className="mt-2 h-12 text-lg" />
+                    <Input 
+                      id="name" 
+                      name="name"
+                      placeholder="Your name" 
+                      required 
+                      className="mt-2 h-12 text-lg" 
+                    />
                   </div>
                   <div>
                     <Label htmlFor="email" className="text-lg">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" required className="mt-2 h-12 text-lg" />
+                    <Input 
+                      id="email" 
+                      name="email"
+                      type="email" 
+                      placeholder="your@email.com" 
+                      required 
+                      className="mt-2 h-12 text-lg" 
+                    />
                   </div>
                   <div>
                     <Label htmlFor="subject" className="text-lg">Subject</Label>
-                    <Input id="subject" placeholder="Project discussion" required className="mt-2 h-12 text-lg" />
+                    <Input 
+                      id="subject" 
+                      name="subject"
+                      placeholder="Project discussion" 
+                      required 
+                      className="mt-2 h-12 text-lg" 
+                    />
                   </div>
                   <div>
                     <Label htmlFor="message" className="text-lg">Message</Label>
                     <textarea 
                       id="message"
+                      name="message"
                       className="flex min-h-[150px] w-full rounded-md border border-input bg-background px-4 py-3 text-lg ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-2"
                       placeholder="Tell me about your project..."
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 h-14 text-lg">
+                  
+                  {/* Hidden field for Formspree to know where to send */}
+                  <input type="hidden" name="_to" value="opeyemi655@gmail.com" />
+                  <input type="hidden" name="_subject" value="New contact from yemibanwo.dev" />
+                  
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 h-14 text-lg disabled:opacity-50"
+                  >
                     <Send className="w-5 h-5 mr-3" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+                  
+                  {submitMessage && (
+                    <div className={`text-center p-4 rounded-md ${
+                      submitMessage.includes("successfully") 
+                        ? "bg-green-100 text-green-800" 
+                        : "bg-red-100 text-red-800"
+                    }`}>
+                      {submitMessage}
+                    </div>
+                  )}
                 </form>
               </CardContent>
             </Card>
