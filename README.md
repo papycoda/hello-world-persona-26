@@ -10,6 +10,7 @@ Live site: https://yemibanwo.dev
 - Technical stack across Python, Django, FastAPI, databases, queues, cloud, and AI tooling
 - Selected projects including cue for Windows, FuelSpotter, Bookie, and JobScout
 - Contact form and direct links for collaboration
+- Structured SEO metadata, Person JSON-LD, sitemap, and branded social previews
 
 ## Stack
 
@@ -19,6 +20,7 @@ Live site: https://yemibanwo.dev
 - Tailwind CSS
 - shadcn/ui
 - GitHub Pages
+- Formspree
 
 ## Local development
 
@@ -74,21 +76,29 @@ GitHub Pages serves the `gh-pages` branch over HTTPS.
 ```text
 src/
 ├── components/
+│   ├── SiteHeader.tsx
 │   ├── Hero.tsx
 │   ├── About.tsx
 │   ├── Skills.tsx
 │   ├── Experience.tsx
 │   ├── Projects.tsx
-│   └── Contact.tsx
+│   ├── Contact.tsx
+│   └── SiteFooter.tsx
 ├── pages/
 │   └── Index.tsx
 ├── App.tsx
 └── main.tsx
+
+public/
+├── CNAME
+├── og-image.png
+├── robots.txt
+└── sitemap.xml
 ```
 
 ## Featured work
 
-- [cue for Windows](https://github.com/papycoda/cue-windows) — local-first AI overlay for Windows
+- [cue for Windows](https://github.com/papycoda/cue-windows) — Windows port and extension of the open-source [Cue](https://github.com/Blueturboguy07/cue) overlay
 - [FuelSpotter API](https://github.com/papycoda/SpotterDjango) — Django REST route and fuel-cost optimization API
 - [Bookie](https://github.com/papycoda/booking-scheduler) — booking and payment platform for small businesses
 - [JobScout](https://github.com/papycoda/jobscout) — resume-driven automated job-search assistant
