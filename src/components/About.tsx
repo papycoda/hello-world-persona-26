@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import profilePhoto from "../../profp.webp";
 
 const About = () => {
   return (
@@ -55,7 +56,7 @@ const About = () => {
               <div className="relative w-full max-w-md aspect-square">
                 <div className="absolute -inset-3 rounded-2xl border border-green-500/20" />
                 <img
-                  src="/profp.webp"
+                  src={profilePhoto}
                   alt="Yemi Banwo"
                   className="relative w-full h-full object-cover rounded-2xl shadow-2xl"
                 />
