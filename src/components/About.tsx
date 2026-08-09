@@ -1,57 +1,64 @@
 import { Card, CardContent } from "@/components/ui/card";
+import profilePhoto from "../../profp.webp";
 
 const About = () => {
   return (
-    <section id="about" className="py-32 bg-gray-900">
+    <section id="about" className="py-28 bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-white mb-20">
-            About Me
-          </h2>
+          <div className="mb-16">
+            <p className="text-green-400 font-semibold uppercase tracking-[0.2em] text-sm mb-3">
+              About
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white max-w-3xl">
+              Backend engineering is the center of my work.
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-24 items-start">
-            <div className="space-y-8">
-              <p className="text-xl text-gray-300 leading-relaxed">
-                I'm a passionate Python Backend Engineer with over 5 years of
-                experience specializing in Django development and data science.
-                My journey spans from architecting scalable web APIs to building
-                intelligent data pipelines.
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div className="space-y-7">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                Most of what I build lives behind the interface: APIs, background
+                jobs, integrations, data workflows, and the infrastructure that keeps
+                products dependable when real users show up.
               </p>
 
-              <p className="text-xl text-gray-300 leading-relaxed">
-                I thrive on solving complex backend challenges and creating
-                robust solutions that drive business growth. Whether it's
-                optimizing database performance, designing microservices
-                architecture, or implementing machine learning models, I bring
-                both technical depth and strategic thinking to every project.
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                Python is my main tool, especially Django and FastAPI. I also work
+                across databases, queues, cloud infrastructure, data tooling, and LLM
+                APIs. When a product needs it, I&apos;ll cross the boundary into React,
+                TypeScript, or Electron rather than treating the stack as a religion.
               </p>
 
-              <div className="grid grid-cols-2 gap-6 mt-12">
-                <Card className="text-center p-6 bg-gray-800 border-gray-700">
-                  <CardContent className="p-0">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                I care about clear architecture, security, correctness, and making
+                complicated workflows easier to operate. The goal is not clever code;
+                it&apos;s software people can trust.
+              </p>
+
+              <div className="grid grid-cols-2 gap-5 pt-5">
+                <Card className="bg-gray-800 border-gray-700">
+                  <CardContent className="p-6">
                     <div className="text-3xl font-bold text-green-400">5+</div>
-                    <div className="text-lg text-gray-400 mt-2">
-                      Years Experience
-                    </div>
+                    <div className="text-gray-400 mt-2">Years building software</div>
                   </CardContent>
                 </Card>
-                <Card className="text-center p-6 bg-gray-800 border-gray-700">
-                  <CardContent className="p-0">
-                    <div className="text-3xl font-bold text-green-400">50+</div>
-                    <div className="text-lg text-gray-400 mt-2">
-                      Projects Delivered
-                    </div>
+                <Card className="bg-gray-800 border-gray-700">
+                  <CardContent className="p-6">
+                    <div className="text-3xl font-bold text-green-400">50M+</div>
+                    <div className="text-gray-400 mt-2">Data points in LLM workflows</div>
                   </CardContent>
                 </Card>
               </div>
             </div>
 
-            <div className="flex justify-end md:justify-center lg:justify-end">
-              <div className="w-96 h-96 bg-gradient-to-br from-green-900 to-green-800 rounded-lg flex items-center justify-center shadow-2xl">
+            <div className="flex justify-center md:justify-end">
+              <div className="relative w-full max-w-md aspect-square">
+                <div className="absolute -inset-3 rounded-2xl border border-green-500/20" />
                 <img
-                  src="profp.webp"
-                  alt="YemiBanwo"
-                  className="w-full h-full object-cover rounded-lg"
+                  src={profilePhoto}
+                  alt="Yemi Banwo"
+                  className="relative w-full h-full object-cover rounded-2xl shadow-2xl"
                 />
               </div>
             </div>

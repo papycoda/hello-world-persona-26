@@ -5,56 +5,54 @@ const Experience = () => {
   const experiences = [
     {
       title: "Python LLM Engineer",
-      company: "Turing - Meta",
+      company: "Turing",
       location: "Remote",
-      period: "2024",
+      period: "Oct 2024 – Present",
       description:
-        "Engineered high-performance Python solutions as part of a globally distributed team contributing to the development of Meta's LLaMA 4 language model.",
+        "Building Python data and evaluation workflows used in large-language-model development and training.",
       achievements: [
-        "Designed and optimized ETL pipelines that ingested and transformed over 50 million data points from multilingual public datasets",
-        "Wrote modular, testable code in Jupyter Notebooks to support research reproducibility and transparency",
-        "Collaborated cross-functionally with data scientists and researchers to refine model training strategies, resulting in 10% improvement in training efficiency",
-        "Authored detailed documentation and participated in code reviews to uphold rigorous quality standards across ML workflows",
+        "Designed ETL workflows that processed more than 50 million data points from multilingual public datasets.",
+        "Built modular, testable Python workflows for data preparation, experimentation, and repeatable research tasks.",
+        "Worked with distributed research and engineering teams to improve data quality, model-training workflows, and technical documentation.",
       ],
     },
     {
-      title: "Independent Contractor (Python/React/Odoo)",
-      company: "McGeorge Consulting",
+      title: "Software Engineer (Contract)",
+      company: "MacGeorge Consulting",
       location: "Remote",
-      period: "Aug 2020 - Oct 2024",
+      period: "Aug 2020 – Oct 2024",
       description:
-        "Led full-stack development and data science initiatives, delivering scalable solutions using Python, React, and Odoo frameworks.",
+        "Delivered backend, data, and business-software projects across Python, Flask, React, and Odoo environments.",
       achievements: [
-        "Led backend development using Flask and MongoDB, reducing page load times by 40%",
-        "Coordinated with cross-functional teams, resulting in a 30% increase in customer engagement",
-        "Implemented agile practices, boosting team productivity by 70%",
-        "Developed predictive data models using machine learning techniques, enhancing decision-making processes",
+        "Built and improved backend services and internal business systems, including Flask and MongoDB applications.",
+        "Worked directly with stakeholders to turn operational requirements into maintainable software workflows.",
+        "Applied data analysis and machine-learning techniques where they materially improved reporting and decision-making.",
       ],
     },
     {
       title: "Staff Software Developer",
       company: "OKK Global Resources",
-      location: "Lagos, Nigeria",
-      period: "Jul 2019 - Aug 2020",
+      location: "Nigeria",
+      period: "Jul 2019 – Aug 2020",
       description:
-        "Leading backend architecture and development for scalable web applications using Django and PostgreSQL.",
+        "Built internal web systems and helped move operational workflows away from desktop-only tooling.",
       achievements: [
-        "Migrated personnel management system from desktop to web application, improving staff efficiency by 50%",
-        "Enhanced application modules, leading to a 30% increase in productivity",
-        "Utilized software design skills to expedite project completion times by 33%",
+        "Migrated a personnel-management workflow from desktop software to a web application.",
+        "Extended internal application modules to reduce repetitive administrative work.",
+        "Worked across application design, implementation, debugging, and delivery in a small engineering environment.",
       ],
     },
     {
       title: "Data Science Intern",
       company: "Bincom Development Centre",
-      location: "Lagos, Nigeria",
-      period: "Jan 2019 - Jul 2019",
+      location: "Nigeria",
+      period: "Jan 2019 – Jul 2019",
       description:
-        "Worked on data-centric projects using Python, PostgreSQL, NumPy, and Pandas to develop industry-leading solutions.",
+        "Worked on data-centric projects using Python, PostgreSQL, NumPy, and Pandas.",
       achievements: [
-        "Worked on data-centric projects using Python, PostgreSQL, NumPy, and Pandas",
-        "Developed predictive models and visualization tools, contributing to industry-leading solutions",
-        "Conducted research on emerging technologies to inform project development",
+        "Cleaned, explored, and analyzed datasets for internal and client-facing projects.",
+        "Built predictive experiments and visualizations to support data-driven decisions.",
+        "Researched emerging tools and techniques and translated findings into practical project work.",
       ],
     },
   ];
@@ -63,51 +61,50 @@ const Experience = () => {
     <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-20">
-            Professional Experience
-          </h2>
+          <div className="mb-16">
+            <p className="text-green-700 font-semibold uppercase tracking-[0.2em] text-sm mb-3">
+              Experience
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Production work, not just portfolio code.
+            </h2>
+          </div>
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
+          <div className="space-y-8">
+            {experiences.map((exp) => (
               <Card
-                key={index}
-                className="hover:shadow-xl transition-shadow duration-300 p-8"
+                key={`${exp.company}-${exp.title}`}
+                className="border-gray-200 hover:shadow-lg transition-shadow duration-300"
               >
-                <CardHeader className="pb-6">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <CardHeader className="pb-5">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
                     <div className="flex-1">
                       <CardTitle className="text-2xl text-gray-900 mb-2">
                         {exp.title}
                       </CardTitle>
-                      <p className="text-xl text-blue-600 font-semibold">
-                        {exp.company}
-                      </p>
+                      <p className="text-lg text-green-700 font-semibold">{exp.company}</p>
                     </div>
-                    <div className="flex flex-col md:items-end gap-3 min-w-fit">
-                      <div className="flex items-center text-gray-500 text-lg">
-                        <Calendar className="w-5 h-5 mr-3" />
+                    <div className="flex flex-col md:items-end gap-2 min-w-fit">
+                      <div className="flex items-center text-gray-500">
+                        <Calendar className="w-4 h-4 mr-2" />
                         {exp.period}
                       </div>
-                      <div className="flex items-center text-gray-500 text-lg">
-                        <MapPin className="w-5 h-5 mr-3" />
+                      <div className="flex items-center text-gray-500">
+                        <MapPin className="w-4 h-4 mr-2" />
                         {exp.location}
                       </div>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                  <p className="text-gray-700 mb-5 text-lg leading-relaxed">
                     {exp.description}
                   </p>
                   <ul className="space-y-3">
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="flex items-start">
-                        <span className="text-blue-600 mr-3 text-lg font-bold">
-                          •
-                        </span>
-                        <span className="text-gray-600 text-lg">
-                          {achievement}
-                        </span>
+                    {exp.achievements.map((achievement) => (
+                      <li key={achievement} className="flex items-start">
+                        <span className="text-green-700 mr-3 font-bold">•</span>
+                        <span className="text-gray-600 leading-relaxed">{achievement}</span>
                       </li>
                     ))}
                   </ul>
