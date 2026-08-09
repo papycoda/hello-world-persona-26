@@ -17,6 +17,20 @@ const Experience = () => {
       stack: ["Python", "ETL", "LLM workflows", "Data pipelines"],
     },
     {
+      title: "Backend Engineer",
+      company: "Enyata",
+      location: "Nigeria",
+      period: "Nov 2024 – Jan 2026",
+      summary:
+        "Built production backend and AI-assisted workflows for fintech products, with a focus on reliability, security, and performance.",
+      highlights: [
+        "Built and maintained Django and FastAPI services handling 20K+ daily requests across customer-facing and internal workflows.",
+        "Optimized PostgreSQL queries, indexes, and application data access patterns, reducing database latency by roughly 50%.",
+        "Developed secure REST and GraphQL APIs, third-party integrations, OAuth2/JWT authentication, and OCR/LLM-assisted processing workflows.",
+      ],
+      stack: ["Python", "Django", "FastAPI", "PostgreSQL", "DRF", "GraphQL", "AWS", "OAuth2/JWT"],
+    },
+    {
       title: "Software Engineer (Contract)",
       company: "MacGeorge Consulting",
       location: "Remote",
@@ -72,7 +86,7 @@ const Experience = () => {
               I&apos;ve spent years building software people actually depend on.
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              From internal business systems to large-scale LLM data workflows, the common thread is backend engineering: turning messy requirements into reliable software.
+              From production fintech systems to large-scale LLM data workflows, the common thread is backend engineering: turning messy requirements into reliable software.
             </p>
           </div>
 
