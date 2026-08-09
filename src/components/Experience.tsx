@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin } from "lucide-react";
 
 const Experience = () => {
@@ -8,52 +7,56 @@ const Experience = () => {
       company: "Turing",
       location: "Remote",
       period: "Oct 2024 – Present",
-      description:
-        "Building Python data and evaluation workflows used in large-language-model development and training.",
-      achievements: [
-        "Designed ETL workflows that processed more than 50 million data points from multilingual public datasets.",
+      summary:
+        "Building large-scale Python data and evaluation workflows used in LLM development and training.",
+      highlights: [
+        "Designed ETL workflows processing 50M+ data points from multilingual public datasets.",
         "Built modular, testable Python workflows for data preparation, experimentation, and repeatable research tasks.",
-        "Worked with distributed research and engineering teams to improve data quality, model-training workflows, and technical documentation.",
+        "Collaborate with distributed research and engineering teams on data quality, training workflows, and technical documentation.",
       ],
+      stack: ["Python", "ETL", "LLM workflows", "Data pipelines"],
     },
     {
       title: "Software Engineer (Contract)",
       company: "MacGeorge Consulting",
       location: "Remote",
       period: "Aug 2020 – Oct 2024",
-      description:
-        "Delivered backend, data, and business-software projects across Python, Flask, React, and Odoo environments.",
-      achievements: [
-        "Built and improved backend services and internal business systems, including Flask and MongoDB applications.",
-        "Worked directly with stakeholders to turn operational requirements into maintainable software workflows.",
-        "Applied data analysis and machine-learning techniques where they materially improved reporting and decision-making.",
+      summary:
+        "Delivered backend, data, and internal business systems across Python-based product environments.",
+      highlights: [
+        "Built and improved backend services and operational tools using Flask, MongoDB, React, and Odoo.",
+        "Turned business processes and stakeholder requirements into maintainable software workflows.",
+        "Applied data analysis and machine-learning techniques where they improved reporting and decision-making.",
       ],
+      stack: ["Python", "Flask", "MongoDB", "React", "Odoo"],
     },
     {
       title: "Staff Software Developer",
       company: "OKK Global Resources",
       location: "Nigeria",
       period: "Jul 2019 – Aug 2020",
-      description:
+      summary:
         "Built internal web systems and helped move operational workflows away from desktop-only tooling.",
-      achievements: [
+      highlights: [
         "Migrated a personnel-management workflow from desktop software to a web application.",
         "Extended internal application modules to reduce repetitive administrative work.",
         "Worked across application design, implementation, debugging, and delivery in a small engineering environment.",
       ],
+      stack: ["Python", "Django", "PostgreSQL", "Web applications"],
     },
     {
       title: "Data Science Intern",
       company: "Bincom Development Centre",
       location: "Nigeria",
       period: "Jan 2019 – Jul 2019",
-      description:
-        "Worked on data-centric projects using Python, PostgreSQL, NumPy, and Pandas.",
-      achievements: [
+      summary:
+        "Worked on data-centric projects and learned how to turn raw datasets into useful analysis and software outputs.",
+      highlights: [
         "Cleaned, explored, and analyzed datasets for internal and client-facing projects.",
         "Built predictive experiments and visualizations to support data-driven decisions.",
-        "Researched emerging tools and techniques and translated findings into practical project work.",
+        "Researched emerging tools and translated findings into practical project work.",
       ],
+      stack: ["Python", "Pandas", "NumPy", "PostgreSQL", "scikit-learn"],
     },
   ];
 
@@ -61,56 +64,80 @@ const Experience = () => {
     <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
+          <div className="mb-16 max-w-3xl">
             <p className="text-green-700 font-semibold uppercase tracking-[0.2em] text-sm mb-3">
               Experience
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Production work, not just portfolio code.
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+              I&apos;ve spent years building software people actually depend on.
             </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              From internal business systems to large-scale LLM data workflows, the common thread is backend engineering: turning messy requirements into reliable software.
+            </p>
           </div>
 
-          <div className="space-y-8">
-            {experiences.map((exp) => (
-              <Card
-                key={`${exp.company}-${exp.title}`}
-                className="border-gray-200 hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardHeader className="pb-5">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
-                    <div className="flex-1">
-                      <CardTitle className="text-2xl text-gray-900 mb-2">
-                        {exp.title}
-                      </CardTitle>
-                      <p className="text-lg text-green-700 font-semibold">{exp.company}</p>
-                    </div>
-                    <div className="flex flex-col md:items-end gap-2 min-w-fit">
-                      <div className="flex items-center text-gray-500">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {exp.period}
+          <div className="relative">
+            <div className="absolute left-[7px] md:left-[11px] top-3 bottom-3 w-px bg-gray-200" />
+
+            <div className="space-y-14">
+              {experiences.map((exp, index) => (
+                <article
+                  key={`${exp.company}-${exp.title}`}
+                  className="relative pl-10 md:pl-14 grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-12"
+                >
+                  <div className="absolute left-0 md:left-1 top-2 w-4 h-4 rounded-full bg-green-700 ring-4 ring-green-50" />
+
+                  <div>
+                    <p className="text-sm font-semibold text-green-700 mb-2">
+                      {index === 0 ? "Current" : exp.period}
+                    </p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      {exp.title}
+                    </h3>
+                    <p className="text-lg font-semibold text-gray-700 mb-4">
+                      {exp.company}
+                    </p>
+
+                    <div className="space-y-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>{exp.period}</span>
                       </div>
-                      <div className="flex items-center text-gray-500">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        {exp.location}
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        <span>{exp.location}</span>
                       </div>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-gray-700 mb-5 text-lg leading-relaxed">
-                    {exp.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {exp.achievements.map((achievement) => (
-                      <li key={achievement} className="flex items-start">
-                        <span className="text-green-700 mr-3 font-bold">•</span>
-                        <span className="text-gray-600 leading-relaxed">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+
+                  <div className="border-b border-gray-200 pb-12">
+                    <p className="text-xl text-gray-800 leading-relaxed mb-6">
+                      {exp.summary}
+                    </p>
+
+                    <ul className="space-y-3 mb-7">
+                      {exp.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-3 text-gray-600 leading-relaxed">
+                          <span className="text-green-700 font-bold mt-0.5">•</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </div>
