@@ -1,83 +1,97 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Django E-Commerce API",
-      description: "Scalable REST API built with Django REST Framework and PostgreSQL, handling 10,000+ daily transactions with real-time inventory management and payment processing.",
-      technologies: ["Django", "DRF", "PostgreSQL", "Redis", "Celery", "AWS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true
+      title: "cue for Windows",
+      description:
+        "A local-first Electron AI overlay for Windows that combines screen context, microphone input, and system audio with streaming responses from multiple model providers.",
+      technologies: ["Electron", "JavaScript", "OpenAI", "Anthropic", "Gemini", "Windows"],
+      githubUrl: "https://github.com/papycoda/cue-windows",
     },
     {
-      title: "Python Data Pipeline",
-      description: "Real-time data processing pipeline using Python, Pandas, and Apache Kafka for ETL operations and business intelligence reporting.",
-      technologies: ["Python", "Pandas", "Kafka", "PostgreSQL", "Docker", "Airflow"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true
+      title: "FuelSpotter API",
+      description:
+        "A Django REST route-planning API that combines routing, local fuel-price data, background geocoding, and cost-aware fuel-stop optimization.",
+      technologies: ["Python", "Django", "DRF", "GeoJSON", "Docker", "Swagger"],
+      githubUrl: "https://github.com/papycoda/SpotterDjango",
     },
     {
-      title: "Flask Microservices",
-      description: "Distributed microservices architecture using Flask, Docker, and Kubernetes for user management, payments, and notification services.",
-      technologies: ["Flask", "Docker", "Kubernetes", "RabbitMQ", "MongoDB", "JWT"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false
-    }
+      title: "Bookie",
+      description:
+        "A booking and payment platform for small businesses with staff scheduling, availability, Paystack payments, notifications, and multi-business support.",
+      technologies: ["FastAPI", "PostgreSQL", "Redis", "Paystack", "React", "Docker"],
+      githubUrl: "https://github.com/papycoda/booking-scheduler",
+    },
+    {
+      title: "JobScout",
+      description:
+        "A resume-driven job-search assistant that pulls from multiple sources, applies conservative eligibility filters, scores matches, and sends focused email digests.",
+      technologies: ["Python", "Automation", "RSS", "APIs", "Scheduling", "Email"],
+      githubUrl: "https://github.com/papycoda/jobscout",
+    },
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+    <section id="projects" className="py-24 bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-white mb-16">
-            Featured Projects
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gray-800 border-gray-700">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <p className="text-green-400 font-semibold uppercase tracking-[0.2em] text-sm mb-3">
+                Selected work
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                Things I&apos;ve actually built.
+              </h2>
+            </div>
+            <a
+              href="https://github.com/papycoda?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-green-400 transition-colors inline-flex items-center gap-2"
+            >
+              <Github className="w-5 h-5" />
+              More on GitHub
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <Card
+                key={project.title}
+                className="bg-gray-800 border-gray-700 hover:border-green-500/50 hover:-translate-y-1 transition-all duration-300"
+              >
                 <CardHeader>
-                  <CardTitle className="text-xl text-white">{project.title}</CardTitle>
+                  <CardTitle className="text-2xl text-white">{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300 mb-4 line-clamp-3">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="px-3 py-1 bg-green-900 text-green-300 text-xs rounded-full"
+                  <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-7">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded-full"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
-                  <div className="flex gap-4">
-                    <Button variant="outline" size="sm" className="flex items-center gap-2 border-green-600 text-green-400 hover:bg-green-600 hover:text-white">
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex items-center gap-2 border-gray-600 text-gray-400 hover:bg-gray-600 hover:text-white">
-                      <Github className="w-4 h-4" />
-                      Code
-                    </Button>
-                  </div>
+
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-medium transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    View repository
+                  </a>
                 </CardContent>
               </Card>
             ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="border-green-600 text-green-400 hover:bg-green-600 hover:text-white">
-              View All Projects
-            </Button>
           </div>
         </div>
       </div>
