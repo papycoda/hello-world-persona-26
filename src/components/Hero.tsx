@@ -2,13 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Mail } from "lucide-react";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top_right,_rgba(34,197,94,0.14),_transparent_38%)]" />
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_top_right,_rgba(34,197,94,0.14),_transparent_38%)]" />
 
       <div className="container mx-auto px-6 py-24 text-center relative z-10">
         <div className="max-w-5xl mx-auto">
@@ -30,20 +26,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-            <Button
-              onClick={() => scrollToSection("projects")}
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white"
-            >
-              Explore My Work
+            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+              <a href="#projects">Explore My Work</a>
             </Button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              variant="outline"
-              size="lg"
-              className="border-gray-600 text-gray-200 hover:bg-gray-800 hover:text-white"
-            >
-              Work With Me
+            <Button asChild size="lg" className="bg-gray-800 border border-gray-600 text-white hover:bg-gray-700 hover:text-white">
+              <a href="#contact">Work With Me</a>
             </Button>
           </div>
 
@@ -68,13 +55,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <button
-        onClick={() => scrollToSection("about")}
+      <a
+        href="#about"
         aria-label="Scroll to about section"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-500 hover:text-green-400 transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-gray-500 hover:text-green-400 transition-colors animate-bounce"
       >
         <ArrowDown size={32} />
-      </button>
+      </a>
     </section>
   );
 };
